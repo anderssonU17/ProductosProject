@@ -1,0 +1,42 @@
+/* Navbar.css */
+
+.navbar {
+    padding: 0.5rem 1rem;
+  }
+  
+  .navbar-light {
+    background-color: #ffffff; /* Fondo blanco */
+  }
+  
+  .navbar-light .navbar-brand .logo {
+    height: 40px; /* Ajusta el tamaño del logo */
+  }
+  
+  .navbar-nav .nav-link {
+    color: #333333; /* Color del texto */
+    font-weight: 500;
+    margin-right: 1rem;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #007bff; /* Color del texto al pasar el ratón */
+  }
+  
+  .btn-outline-dark {
+    border-color: #007bff; /* Color del borde del botón */
+    color: #007bff; /* Color del texto del botón */
+  }
+  
+  .btn-outline-dark:hover {
+    background-color: #007bff; /* Color de fondo del botón al pasar el ratón */
+    color: #ffffff; /* Color del texto del botón al pasar el ratón */
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"%3E%3Cpath stroke="%23333333" stroke-width="2" d="M4 6h22M4 15h22M4 24h22"/%3E%3C/svg%3E');
+  }
+  
+  .navbar-light .navbar-nav .nav-link svg {
+    margin-right: 0.5rem;
+  }
+  
