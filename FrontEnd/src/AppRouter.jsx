@@ -1,10 +1,14 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
-import { LoginPage, isUserAuthenticated } from './auth';
-import { CreateAccount } from './auth/pages/CreateAccount';
-import { ProductosPage } from './productos/pages';
-import { Navbar } from "./components"; // Asegúrate de tener el componente Navbar importado
-import {UsuarioPage} from './user/components/UsuarioPage';
-import {AllUsers} from './user/components/AllUsers';
+import 
+{ 
+  LoginPage,
+  CreateAccount,
+  isUserAuthenticated,   
+  ProductosPage,
+  Navbar,  
+  UsuarioPage, 
+  AllUsers,
+} from './index'
 
 
 export const AppRouter = () => {

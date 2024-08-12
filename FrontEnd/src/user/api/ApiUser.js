@@ -4,6 +4,9 @@ import { URL_GLOBAL } from "../../constant";
 
 const URL = URL_GLOBAL;
 
+
+// Se traen los datos de un usuario
+
 export const getOwnUser = async (token) => {
     try {
       const response = await axios.get(`${URL}viewUser`, {
@@ -25,6 +28,7 @@ export const getOwnUser = async (token) => {
     }
   };
   
+  // Funcion para actualizar usuario
   export const updateUser = async (id, userData, token) => {
     try {
       const response = await axios.put(`${URL}updateUser/${id}`, userData, {
@@ -45,6 +49,8 @@ export const getOwnUser = async (token) => {
       return null;
     }
   };
+
+  // Funcion para eliminar usuario
   
   export const deleteUser = async (id, token) => {
     try {

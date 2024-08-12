@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { listUsers, deleteUser } from '../api/apiuser';
+import { listUsers, deleteUser } from '../api/ApiUser';
 import Swal from 'sweetalert2';
 import '../styles/AllUsers.css';
 
@@ -49,17 +49,20 @@ export const AllUsers = () => {
     };
 
     return (
-        <div className="all-users-container">
-            <h2 className="text-center">Lista de Usuarios</h2>
-            <div className="cards-container">
+        <div className="container mt-5">
+            <h2 className="text-center mb-4">Lista de Usuarios</h2>
+            <div className="row">
                 {users.map(user => (
-                    <div className="card" key={user._id}>
-                        <img className="card-img" src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="User Icon" />
-                        <div className="card-body">
-                            <h5 className="card-title">{user.name}</h5>
-                            <p className="card-text"><strong>Email:</strong> {user.email}</p>
-                            <p className="card-text"><strong>Teléfono:</strong> {user.phoneNumber}</p>
-                            <button className="btn btn-danger" onClick={() => handleDelete(user._id)}>Eliminar</button>
+                    <div className="col-md-4 mb-4" key={user._id}>
+                        <div className="card shadow-sm border-light">
+                            <div className="card-body">
+                                <h5 className="card-title">{user.name}</h5>
+                                <p className="card-text"><strong>Email:</strong> {user.email}</p>
+                                <p className="card-text"><strong>Teléfono:</strong> {user.phoneNumber}</p>
+                                <div className="d-flex justify-content-between">
+                                    <button className="btn btn-danger" onClick={() => handleDelete(user._id)}>Eliminar</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 ))}

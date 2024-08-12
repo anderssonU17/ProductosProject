@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { getProducts, createProduct, updateProduct, deleteProduct } from '../api/ApiProducto'; // Asegúrate de tener el método deleteProduct en ApiProducto
+import { getProducts, createProduct, updateProduct, deleteProduct } from '../api/ApiProducto'; 
 import { Modal, Button, Form } from 'react-bootstrap';
 
 export const ProductosPage = () => {
@@ -139,12 +138,14 @@ export const ProductosPage = () => {
             <p className="card-text">{product.description}</p>
             <p className="card-text font-weight-bold">{product.price}</p>
             <p className="card-text text-muted">Existencia: {product.existence}</p>
-            <Button variant="info" onClick={() => handleEditButtonClick(product)}>
-              Editar
-            </Button>
-            <Button variant="danger" className="ml-2" onClick={() => handleDeleteButtonClick(product)}>
-              Eliminar
-            </Button>
+            <div className="d-flex justify-content-between">
+              <Button variant="info" onClick={() => handleEditButtonClick(product)}>
+                Editar
+              </Button>
+              <Button variant="danger" onClick={() => handleDeleteButtonClick(product)}>
+                Eliminar
+              </Button>
+            </div>
           </div>
         </div>
       </div>
@@ -269,67 +270,69 @@ export const ProductosPage = () => {
           <Modal.Title>Editar Producto</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleEditProductSubmit}>
-            <Form.Group controlId="nameProduct">
-              <Form.Label>Nombre del Producto</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Ingrese el nombre del producto"
-                name="nameProduct"
-                value={productToEdit?.nameProduct || ''}
-                onChange={handleEditProductChange}
-                isInvalid={!!errors.nameProduct}
-              />
-              <Form.Control.Feedback type="invalid">
-                {errors.nameProduct}
-              </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group controlId="description">
-              <Form.Label>Descripción</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Ingrese la descripción del producto"
-                name="description"
-                value={productToEdit?.description || ''}
-                onChange={handleEditProductChange}
-                isInvalid={!!errors.description}
-              />
-              <Form.Control.Feedback type="invalid">
-                {errors.description}
-              </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group controlId="price">
-              <Form.Label>Precio</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Ingrese el precio del producto"
-                name="price"
-                value={productToEdit?.price || ''}
-                onChange={handleEditProductChange}
-                isInvalid={!!errors.price}
-              />
-              <Form.Control.Feedback type="invalid">
-                {errors.price}
-              </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group controlId="existence">
-              <Form.Label>Existencia</Form.Label>
-              <Form.Control
-                type="number"
-                placeholder="Ingrese la existencia del producto"
-                name="existence"
-                value={productToEdit?.existence || ''}
-                onChange={handleEditProductChange}
-                isInvalid={!!errors.existence}
-              />
-              <Form.Control.Feedback type="invalid">
-                {errors.existence}
-              </Form.Control.Feedback>
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Guardar Cambios
-            </Button>
-          </Form>
+          {productToEdit && (
+            <Form onSubmit={handleEditProductSubmit}>
+              <Form.Group controlId="nameProduct">
+                <Form.Label>Nombre del Producto</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Ingrese el nombre del producto"
+                  name="nameProduct"
+                  value={productToEdit.nameProduct}
+                  onChange={handleEditProductChange}
+                  isInvalid={!!errors.nameProduct}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {errors.nameProduct}
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group controlId="description">
+                <Form.Label>Descripción</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Ingrese la descripción del producto"
+                  name="description"
+                  value={productToEdit.description}
+                  onChange={handleEditProductChange}
+                  isInvalid={!!errors.description}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {errors.description}
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group controlId="price">
+                <Form.Label>Precio</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Ingrese el precio del producto"
+                  name="price"
+                  value={productToEdit.price}
+                  onChange={handleEditProductChange}
+                  isInvalid={!!errors.price}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {errors.price}
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group controlId="existence">
+                <Form.Label>Existencia</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Ingrese la existencia del producto"
+                  name="existence"
+                  value={productToEdit.existence}
+                  onChange={handleEditProductChange}
+                  isInvalid={!!errors.existence}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {errors.existence}
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Actualizar Producto
+              </Button>
+            </Form>
+          )}
         </Modal.Body>
       </Modal>
 
@@ -339,13 +342,17 @@ export const ProductosPage = () => {
           <Modal.Title>Eliminar Producto</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>¿Estás seguro de que deseas eliminar el producto "{productToDelete?.nameProduct}"?</p>
-          <Button variant="danger" onClick={handleDeleteProduct}>
-            Eliminar
-          </Button>
-          <Button variant="secondary" onClick={() => setShowDeleteModal(false)} className="ml-2">
-            Cancelar
-          </Button>
+          {productToDelete && (
+            <>
+              <p>¿Estás seguro de que deseas eliminar el producto {productToDelete.nameProduct}?</p>
+              <Button variant="danger" onClick={handleDeleteProduct}>
+                Eliminar
+              </Button>
+              <Button variant="secondary" onClick={() => setShowDeleteModal(false)} className="ml-2">
+                Cancelar
+              </Button>
+            </>
+          )}
         </Modal.Body>
       </Modal>
     </>

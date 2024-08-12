@@ -1,0 +1,56 @@
+
+
+.login-section {
+    background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  .login-card {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .login-image {
+    border-radius: 1rem 0 0 1rem;
+    object-fit: cover;
+    height: 100%;
+  }
+  
+  .login-input {
+    background-color: transparent;
+    border: 2px solid #6c757d;
+    color: white;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .login-input:focus {
+    border-color: #ff6219;
+    box-shadow: 0 0 10px rgba(255, 98, 25, 0.6);
+  }
+  
+  .login-label {
+    color: #d1d1e0;
+  }
+  
+  .login-button {
+    background-color: #ff6219;
+    color: white;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .login-button:hover {
+    background-color: #e55d00;
+    transform: scale(1.05);
+  }
+  
+  .login-link {
+    color: #ff6219;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .login-link:hover {
+    color: #ff921f;
+    text-decoration: underline;
+  }
+  

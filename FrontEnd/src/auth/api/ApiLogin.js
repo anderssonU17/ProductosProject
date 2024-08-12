@@ -4,6 +4,8 @@ import { URL_GLOBAL } from "../../constant";
 
 const URL = URL_GLOBAL;
 
+
+// Login 
 export const ApiLogin = async (email, password) => {
     try {
         const response = await axios.post(`${URL}login`, { email, password });
@@ -31,6 +33,7 @@ export const ApiLogin = async (email, password) => {
     }
 }
 
+// Crear usuario 
 export const CreateUser = async (user, email, password, dateOfBirth, phoneNumber ) => {
   try {
       await axios.post(`${URL}createUser`, {

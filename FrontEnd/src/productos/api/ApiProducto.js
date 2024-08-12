@@ -1,9 +1,10 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
-
 import { URL_GLOBAL } from "../../constant";
 
 const URL = URL_GLOBAL;
+
+// Se obtienen todos los productos 
 
 export const getProducts = async () => {
   try {
@@ -48,6 +49,7 @@ export const getProducts = async () => {
   }
 };
 
+// Creacion de productos pasando el token 
 export const createProduct = async (productData) => {
   try {
     const token = localStorage.getItem('token');
@@ -90,6 +92,8 @@ export const createProduct = async (productData) => {
     return null;
   }
 };
+
+// Actualizacion de producto
 
 export const updateProduct = async (id, productData) => {
   try {

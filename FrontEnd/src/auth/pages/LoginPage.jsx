@@ -1,7 +1,8 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { ApiLogin } from '../api/ApiLogin';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import '../styles/LoginPage.css';  
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -23,22 +24,21 @@ export const LoginPage = () => {
   };
 
   return (
-    <section className="vh-100" style={{ backgroundColor: '#d6efc0' }}>
+    <section className="vh-100 login-section">
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col col-xl-10">
-            <div className="card" style={{ borderRadius: '1rem' }}>
+            <div className="card login-card">
               <div className="row g-0">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
                   <img 
-                    src="https://i.pinimg.com/736x/99/53/7d/99537de91969cd5bec2142c8979c9ae3.jpg" 
+                    src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" 
                     alt="login form" 
-                    className="img-fluid" 
-                    style={{ borderRadius: '1rem 0 0 1rem' }} 
+                    className="img-fluid login-image" 
                   />
                 </div>
                 <div className="col-md-6 col-lg-7 d-flex align-items-center">
-                  <div className="card-body p-4 p-lg-5 text-black">
+                  <div className="card-body p-4 p-lg-5 text-white">
 
                     <form onSubmit={(e) => e.preventDefault()}>
 
@@ -55,27 +55,29 @@ export const LoginPage = () => {
                         <input
                           type="email"
                           id="form2Example17"
-                          className="form-control form-control-lg"
+                          className="form-control form-control-lg login-input"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
+                          required
                         />
-                        <label className="form-label" htmlFor="form2Example17">Correo eléctronico</label>
+                        <label className="form-label login-label" htmlFor="form2Example17">Correo eléctronico</label>
                       </div>
 
                       <div className="form-outline mb-4">
                         <input
                           type="password"
                           id="form2Example27"
-                          className="form-control form-control-lg"
+                          className="form-control form-control-lg login-input"
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
+                          required
                         />
-                        <label className="form-label" htmlFor="form2Example27">Contraseña</label>
+                        <label className="form-label login-label" htmlFor="form2Example27">Contraseña</label>
                       </div>
 
                       <div className="pt-1 mb-4">
                         <button
-                          className="btn btn-dark btn-lg btn-block"
+                          className="btn btn-lg btn-block login-button"
                           type="button"
                           onClick={handleLogin}
                         >
@@ -83,8 +85,8 @@ export const LoginPage = () => {
                         </button>
                       </div>
 
-                      <p className="mb-5 pb-lg-2" style={{ color: '#393f81' }}>
-                        ¿No tienes una cuenta? <a href="/createAccount" style={{ color: '#393f81' }}>Registrate aqui</a>
+                      <p className="mb-5 pb-lg-2" style={{ color: '#d1d1e0' }}>
+                        ¿No tienes una cuenta? <a href="/createAccount" className="login-link">Registrate aquí</a>
                       </p>
                     </form>
 
